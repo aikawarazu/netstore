@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: netstore
+  datasource:
+    username: root
+    password: fhfh
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/netmarket
+    name: netmarketDataSource
+  freemarker:
+    cache: false
+    enabled: true
+    template-loader-path:
+    - classpath:/templates/
+    suffix: .ftl #这里配置的是，template/${prefix}+${转发的视图名称}+".html" = 目标文件
+    request-context-attribute: rc
+    settings: {templateExceptionHandler: ignore}
+#    参见：{freemarker.core.Configurable}
+#    settings: {templateExceptionHandler: com.fc.exceptions.FreemarkerExceptionHandler}
+#    prefix: aa
+  mvc:
+    view:
+      suffix: .jsp
+      prefix: /WEB-INF/jsppage/
+  resources:
+    static-locations:
+    - "classpath:/META-INF/resources/"
+    - "classpath:/resources/"
+    - "classpath:/static/"
+    - "classpath:/webjars/"
+  servlet:
+    multipart:
+      max-file-size: 400MB
+      file-size-threshold: 400MB
+      max-request-size: 20MB
+#      jsp文件，必须放在WEB-INF下
+#    servlet:
+#      path: /hello # 这里配置所有controller的前缀
+#    contentnegotiation:
+#      media-types: {"text" : "text/plain;charset=UTF-8"}
+mybatis:
+  mapper-locations: /configs/mapper/*
+server:
+  port: 8080
+  servlet:
+    context-path: /netstore
+  error:
+    include-exception: true
