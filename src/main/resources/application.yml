@@ -30,9 +30,9 @@ spring:
     - "classpath:/webjars/"
   servlet:
     multipart:
-      max-file-size: 400MB
-      file-size-threshold: 400MB
-      max-request-size: 20MB
+      max-file-size: 38MB # 单个字段文件大小限制
+      file-size-threshold: 17MB # 超过了该配置大小，则将文件先缓存至磁盘
+      max-request-size: 64MB # 总请求大小限制。
 #      jsp文件，必须放在WEB-INF下
 #    servlet:
 #      path: /hello # 这里配置所有controller的前缀
